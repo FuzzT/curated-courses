@@ -1,6 +1,6 @@
 import { AdjustmentsVerticalIcon, Bars2Icon, ChevronRightIcon } from '@heroicons/react/24/solid';
 import { useState } from 'react';
-
+import Footer from "./component/Footer"; // Footer component
 
 export default function FeatureCards() {
   const [menuOpen, setMenuOpen] = useState(false);
@@ -11,7 +11,7 @@ export default function FeatureCards() {
 
   return (
     <>
-      <section className="p-2 antialiased">
+      <section className="p-2 antialiased relative">
         <div className="bg-gradient-to-br from-amber-200 via-pink-300 to-fuchsia-600 rounded-3xl px-6 lg:px-8">
           <div className="mx-auto max-w-2xl lg:max-w-7xl">
             {/* navbar */}
@@ -63,6 +63,9 @@ export default function FeatureCards() {
           </div>
         </div>
       </section>
+
+      {/* Footer Section */}
+      <Footer />
 
     </>
   )
