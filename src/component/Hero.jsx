@@ -3,8 +3,8 @@ import { Link } from 'react-router-dom';
 const Hero = () => {
   return (
     <section className="p-2 antialiased">
-        <div className="bg-gradient-to-br from-amber-200 via-pink-300 to-fuchsia-600 rounded-3xl px-6 lg:px-8">
-          <div className="mx-auto max-w-2xl lg:max-w-7xl">
+        <div className="bg-gradient-to-br from-amber-200 via-pink-300 to-fuchsia-600 rounded-3xl px-6">
+          <div className="container mx-auto ">
             {/* navbar */}
             <div className='pt-12 sm:pt-16'>
               <Navbar />

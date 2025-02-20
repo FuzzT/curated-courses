@@ -87,7 +87,7 @@ const CourseSec = () => {
       
       
   return (
-    <div className='container w-full mx-auto px-6 md:px-2 py-12'>
+    <div className='container w-full mx-auto px-6 py-12'>
         <h1 className='text-5xl/[0.8] font-medium pb-8'>Courses -</h1>
         <section className="w-full h-full grid grid-cols-1 md:grid-cols-2 lg:grid-cols-2 xl:grid-cols-4 sm:gap-x-10 gap-y-4 md:gap-y-8  ">
             {courseData.map((course, index) => (
