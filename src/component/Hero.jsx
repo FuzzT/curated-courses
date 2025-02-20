@@ -1,5 +1,5 @@
 import Navbar from './Navbar'
-
+import { Link } from 'react-router-dom';
 const Hero = () => {
   return (
     <section className="p-2 antialiased">
@@ -15,6 +15,12 @@ const Hero = () => {
               <div className="mt-12 flex flex-col gap-x-6 gap-y-4 sm:flex-row">
                 <button className="inline-flex items-center justify-center px-4 py-1 bg-gray-950 text-white rounded-full border border-transparent shadow-md text-base font-medium whitespace-nowrap ">Get started</button>
                 <button className="inline-flex items-center justify-center px-4 py-1 bg-transparent border-transparent  rounded-full border shadow-md text-base font-medium whitespace-nowrap ">See pricing</button>
+                <Link
+                  to="/courses"
+                  className="inline-flex items-center justify-center px-4 py-1 bg-gray-950 text-white rounded-full border border-transparent shadow-md text-base font-medium whitespace-nowrap"
+                >
+                  Find Courses
+                </Link>
               </div>
             </div>
           </div>
