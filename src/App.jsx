@@ -1,7 +1,8 @@
-import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
-import Footer from "./component/Footer";
+import Footer from './component/Footer';
+import BlogList from './pages/BlogList';
 import Home from './pages/Home';
 import CourseFilterPage from './pages/CourseFilterPage';
+import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
 
 export default function App() {
   return (
@@ -10,15 +11,16 @@ export default function App() {
         <Routes>
           {/* Home Route */}
           <Route path="/" element={<Home />} />
-          
+
           {/* Course Filter Page Route */}
           <Route path="/courses" element={<CourseFilterPage />} />
+
+          {/* Blog List Route */}
+          <Route path="/AllBlogs" element={<BlogList />} />
         </Routes>
-        
+
         {/* Footer */}
-        <Routes>
-          <Route path="/" element={<Footer />} />
-        </Routes>
+        <Footer />
       </div>
     </Router>
   );

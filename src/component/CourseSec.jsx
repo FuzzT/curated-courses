@@ -63,13 +63,33 @@ const CourseSec = () => {
             "Building TypeScript projects from scratch",
           ],
         },
+        {
+          thumbnail: 'https://i.ytimg.com/vi/d56mG7DezGs/hq720.jpg?sqp=-oaymwEnCNAFEJQDSFryq4qpAxkIARUAAIhCGAHYAQHiAQoIGBACGAY4AUAB&rs=AOn4CLCZiZwQ9Ap0GztQfjTqf4FgoNGIoQ',
+          title: "Learn TypeScript from Scratch",
+          Author: "Programming with Mosh",
+          Rating: "4.7",
+          Reviews: "50k+",
+          Price: 19.99,
+          views: '3M',
+          duration: '1hr 50m',
+          source: 'Pluralsight',
+          tags: ["TypeScript", "JavaScript", "Programming"],
+          level: "Intermediate",
+          keyHighlights: [
+            "Learn basic to advanced TypeScript features",
+            "Type annotations and interfaces",
+            "Generics and advanced types",
+            "Integrating TypeScript with React",
+            "Building TypeScript projects from scratch",
+          ],
+        },
       ];
       
       
   return (
-    <div className='w-full max-w-8xl mx-auto h-auto px-4 py-12'>
-        <h1 className='text-4xl/[0.8] font-medium'>Courses -</h1>
-        <section className="w-full h-full grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 2xl:grid-cols-5  gap-x-2 gap-y-16  ">
+    <div className='container w-full mx-auto px-6 md:px-2 py-12'>
+        <h1 className='text-5xl/[0.8] font-medium pb-8'>Courses -</h1>
+        <section className="w-full h-full grid grid-cols-1 md:grid-cols-2 lg:grid-cols-2 xl:grid-cols-4 sm:gap-x-10 gap-y-4 md:gap-y-8  ">
             {courseData.map((course, index) => (
                 <CourseCard key={index} course={course} />
             ))}

@@ -6,7 +6,7 @@ const CourseCard = ({ course }) => {
   
 
   return (
-    <div className="mx-auto max-w-[420px] w-full  rounded-xl px-2 py-8">
+    <div className="w-full max-w-lg my-8 rounded-xl">
       {/* Course Image */}
       <div className="w-full h-1/2 bg-black rounded-xl overflow-hidden">
         <img src={course.thumbnail} alt="ReactJS Course" className="w-full h-full object-contain" />
