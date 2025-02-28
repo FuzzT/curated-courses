@@ -1,44 +1,16 @@
 import React, { useState } from "react";
+import { motion } from "framer-motion";
+import BackgroundAnimation from "../component/BackgrounAnimation";  // Import the background component
 
 const coursesData = [
-  {
-    title: "React for Beginners",
-    domain: "Web Development",
-    technology: "React",
-    language: "JavaScript",
-    courseLanguage: "English",
-    views: 1200,
-    location: "Udemy",
-  },
-  {
-    title: "Python for Data Science",
-    domain: "Data Science",
-    technology: "Python",
-    language: "Python",
-    courseLanguage: "Hindi",
-    views: 2500,
-    location: "Coursera",
-  },
-  {
-    title: "Advanced JavaScript",
-    domain: "Web Development",
-    technology: "JavaScript",
-    language: "JavaScript",
-    courseLanguage: "English",
-    views: 1800,
-    location: "YouTube",
-  },
+  { title: "React for Beginners", domain: "Web Development", technology: "React", language: "JavaScript", courseLanguage: "English", views: 1200, location: "Udemy" },
+  { title: "Python for Data Science", domain: "Data Science", technology: "Python", language: "Python", courseLanguage: "Hindi", views: 2500, location: "Coursera" },
+  { title: "Advanced JavaScript", domain: "Web Development", technology: "JavaScript", language: "JavaScript", courseLanguage: "English", views: 1800, location: "YouTube" },
 ];
 
 const CourseFilterPage = () => {
-  const [filters, setFilters] = useState({
-    domain: "",
-    technology: "",
-    language: "",
-    courseLanguage: "",
-    minViews: "",
-    location: "",
-  });
+  const [step, setStep] = useState(1);
+  const [filters, setFilters] = useState({ domain: "", technology: "", language: "", courseLanguage: "", minViews: "", location: "" });
 
   const handleFilterChange = (e) => {
     setFilters({ ...filters, [e.target.name]: e.target.value });
@@ -56,113 +28,112 @@ const CourseFilterPage = () => {
   });
 
   return (
-    <section className="p-2 antialiased bg-white">
-      <div className="mx-auto max-w-2xl lg:max-w-7xl">
-        <h1 className="text-4xl font-semibold text-gray-900 sm:text-5xl text-center mb-8">
-          Find Courses
-        </h1>
+    <section className="relative p-4 bg-gray-50 min-h-screen flex flex-col justify-center items-center overflow-hidden">
+      <BackgroundAnimation /> {/* Add the background animation component */}
 
-        {/* Filters Section */}
-        <div className="grid grid-cols-1 lg:grid-cols-4 gap-8 bg-white p-6 rounded-lg shadow-md">
-          <div className="lg:col-span-3 grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-4">
-            <select
-              name="domain"
-              value={filters.domain}
-              onChange={handleFilterChange}
-              className="p-2 border border-gray-300 rounded bg-gray-100 text-gray-900"
-            >
+      <motion.div
+        initial={{ opacity: 0, y: 20 }}
+        animate={{ opacity: 1, y: 0 }}
+        transition={{ duration: 0.5 }}
+        className="max-w-lg w-full bg-white p-6 rounded-lg shadow-lg z-10 relative"
+      >
+        <h1 className="text-3xl font-bold text-gray-900 text-center mb-6">Find Your Perfect Course</h1>
+
+        {/* Stepwise Filtering */}
+        {step === 1 && (
+          <motion.div key="step1" initial={{ opacity: 0 }} animate={{ opacity: 1 }} transition={{ duration: 0.3 }}>
+            <label className="block text-gray-700 font-medium">Select Domain</label>
+            <select name="domain" value={filters.domain} onChange={handleFilterChange} className="w-full p-2 border border-gray-300 rounded mt-2">
               <option value="">Select Domain</option>
               <option value="Web Development">Web Development</option>
               <option value="Data Science">Data Science</option>
             </select>
+          </motion.div>
+        )}
 
-            <select
-              name="technology"
-              value={filters.technology}
-              onChange={handleFilterChange}
-              className="p-2 border border-gray-300 rounded bg-gray-100 text-gray-900"
-            >
+        {step === 2 && (
+          <motion.div key="step2" initial={{ opacity: 0 }} animate={{ opacity: 1 }} transition={{ duration: 0.3 }}>
+            <label className="block text-gray-700 font-medium">Select Technology</label>
+            <select name="technology" value={filters.technology} onChange={handleFilterChange} className="w-full p-2 border border-gray-300 rounded mt-2">
               <option value="">Select Technology</option>
-              <option value="React">React</option>
-              <option value="Python">Python</option>
-              <option value="JavaScript">JavaScript</option>
+              {filters.domain === "Web Development" && (
+                <>
+                  <option value="React">React</option>
+                  <option value="JavaScript">JavaScript</option>
+                </>
+              )}
+              {filters.domain === "Data Science" && <option value="Python">Python</option>}
             </select>
+          </motion.div>
+        )}
 
-            <select
-              name="language"
-              value={filters.language}
-              onChange={handleFilterChange}
-              className="p-2 border border-gray-300 rounded bg-gray-100 text-gray-900"
-            >
+        {step === 3 && (
+          <motion.div key="step3" initial={{ opacity: 0 }} animate={{ opacity: 1 }} transition={{ duration: 0.3 }}>
+            <label className="block text-gray-700 font-medium">Select Programming Language</label>
+            <select name="language" value={filters.language} onChange={handleFilterChange} className="w-full p-2 border border-gray-300 rounded mt-2">
               <option value="">Select Programming Language</option>
               <option value="JavaScript">JavaScript</option>
               <option value="Python">Python</option>
             </select>
+          </motion.div>
+        )}
 
-            <select
-              name="courseLanguage"
-              value={filters.courseLanguage}
-              onChange={handleFilterChange}
-              className="p-2 border border-gray-300 rounded bg-gray-100 text-gray-900"
-            >
+        {step === 4 && (
+          <motion.div key="step4" initial={{ opacity: 0 }} animate={{ opacity: 1 }} transition={{ duration: 0.3 }}>
+            <label className="block text-gray-700 font-medium">Select Course Language</label>
+            <select name="courseLanguage" value={filters.courseLanguage} onChange={handleFilterChange} className="w-full p-2 border border-gray-300 rounded mt-2">
               <option value="">Select Course Language</option>
               <option value="English">English</option>
               <option value="Hindi">Hindi</option>
             </select>
-          </div>
+          </motion.div>
+        )}
 
-          <div className="lg:col-span-1 space-y-4">
-            <input
-              type="number"
-              name="minViews"
-              value={filters.minViews}
-              onChange={handleFilterChange}
-              placeholder="Minimum Views"
-              className="p-2 border border-gray-300 rounded bg-gray-100 text-gray-900 w-full"
-            />
-
-            <select
-              name="location"
-              value={filters.location}
-              onChange={handleFilterChange}
-              className="p-2 border border-gray-300 rounded bg-gray-100 text-gray-900 w-full"
-            >
+        {step === 5 && (
+          <motion.div key="step5" initial={{ opacity: 0 }} animate={{ opacity: 1 }} transition={{ duration: 0.3 }}>
+            <label className="block text-gray-700 font-medium">Select Platform</label>
+            <select name="location" value={filters.location} onChange={handleFilterChange} className="w-full p-2 border border-gray-300 rounded mt-2">
               <option value="">Select Course Location</option>
               <option value="Udemy">Udemy</option>
               <option value="Coursera">Coursera</option>
               <option value="YouTube">YouTube</option>
             </select>
-          </div>
-        </div>
+          </motion.div>
+        )}
 
-        {/* Courses Display Section */}
-        <div className="mt-8 grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
-          {filteredCourses.length > 0 ? (
-            filteredCourses.map((course, index) => (
-              <div
-                key={index}
-                className="relative group bg-white p-6 rounded-lg shadow-lg transition-all duration-300 overflow-hidden border border-gray-300 hover:shadow-xl"
-              >
-                {/* Gradient Hover Effect */}
-                <div className="absolute inset-0 bg-gradient-to-br from-amber-200 via-pink-300 to-fuchsia-600 opacity-0 group-hover:opacity-100 transition-opacity duration-500"></div>
-
-                {/* Course Details */}
-                <div className="relative z-10 text-gray-900 group-hover:text-white transition-all duration-500">
-                  <h2 className="text-xl font-semibold mb-2">{course.title}</h2>
-                  <p className="mb-2">{course.domain}</p>
-                  <p className="mb-2">Technology: {course.technology}</p>
-                  <p className="mb-2">Language: {course.language}</p>
-                  <p className="mb-2">Course Language: {course.courseLanguage}</p>
-                  <p className="mb-2">Views: {course.views}</p>
-                  <p>Location: {course.location}</p>
-                </div>
-              </div>
-            ))
+        {/* Navigation Buttons */}
+        <div className="flex justify-between mt-6">
+          {step > 1 && (
+            <button onClick={() => setStep(step - 1)} className="px-4 py-2 bg-gray-500 text-white rounded hover:bg-gray-700">
+              Back
+            </button>
+          )}
+          {step < 5 ? (
+            <button
+              onClick={() => setStep(step + 1)}
+              className="px-4 py-2 bg-blue-500 text-white rounded hover:bg-blue-700"
+            >
+              Next
+            </button>
           ) : (
-            <p className="text-gray-900 text-center">No courses found.</p>
+            <button onClick={() => setStep(6)} className="px-4 py-2 bg-green-500 text-white rounded hover:bg-green-700">
+              Show Courses
+            </button>
           )}
         </div>
-      </div>
+      </motion.div>
+
+      {/* Show Courses */}
+      {step === 6 && (
+        <motion.div initial={{ opacity: 0 }} animate={{ opacity: 1 }} transition={{ duration: 0.5 }} className="mt-6">
+          <h2 className="text-2xl font-semibold text-gray-900">Filtered Courses</h2>
+          <ul className="mt-4">
+            {filteredCourses.map((course, index) => (
+              <li key={index} className="p-3 bg-white shadow rounded-lg mb-2">{course.title} - {course.location}</li>
+            ))}
+          </ul>
+        </motion.div>
+      )}
     </section>
   );
 };

@@ -8,17 +8,18 @@ export default function App() {
   return (
     <Router>
       <div className="min-h-screen flex flex-col">
-        <Routes>
-          {/* Home Route */}
-          <Route path="/" element={<Home />} />
+        <div className="flex-grow">
+          <Routes>
+            {/* Home Route */}
+            <Route path="/" element={<Home />} />
 
-          {/* Course Filter Page Route */}
-          <Route path="/courses" element={<CourseFilterPage />} />
+            {/* Course Filter Page Route */}
+            <Route path="/courses" element={<CourseFilterPage />} />
 
-          {/* Blog List Route */}
-          <Route path="/AllBlogs" element={<BlogList />} />
-        </Routes>
-
+            {/* Blog List Route */}
+            <Route path="/AllBlogs" element={<BlogList />} />
+          </Routes>
+        </div>
         {/* Footer */}
         <Footer />
       </div>
