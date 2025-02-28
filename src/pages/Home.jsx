@@ -1,4 +1,3 @@
-import React from 'react'
 import Hero from '../component/Hero'
 import CourseSec from '../component/CourseSec'
 import { ArrowUpRightIcon } from '@heroicons/react/24/solid'
@@ -7,16 +6,12 @@ import { Link } from 'react-router-dom'
 import { blogPosts } from '../../data'
 
 const Home = () => {
-  
-  
-  
-
   return (
-    <div className='w-full h-full'>
+    <div className='w-full h-full relative'>
       <Hero />
       <CourseSec />
       {/* blog */}
-      <section className='container mx-auto w-full min-h-[50vh] pt-12 mb-24  px-6 md:px-2'>
+      <section className='container mx-auto w-full min-h-[50vh] pt-12 mb-24  px-6'>
         <div className='flex  items-center justify-between pb-16 '>
           <h1 className='text-5xl/[0.9] font-medium '>Blog</h1>
           <Link to={'/AllBlogs'}>

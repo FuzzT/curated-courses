@@ -4,6 +4,7 @@ import {
   ChevronRightIcon,
 } from "@heroicons/react/24/solid";
 import { useState } from "react";
+import { Link } from "react-router-dom";
 
 const Navbar = () => {
   const [menuOpen, setMenuOpen] = useState(false);
@@ -12,18 +13,20 @@ const Navbar = () => {
     setMenuOpen((menuOpen) => !menuOpen);
   };
   return (
-    <div>
+    <div className="container mx-auto w-full">
       <nav className="flex items-center justify-between">
-        <div className="flex items-center gap-x-2">
-          <AdjustmentsVerticalIcon className="w-6 h-6" />
-          <h1 className="text-xl font-medium">Radiant</h1>
-          <div className="bg-gray-600/35 rounded-full px-3 py-1/2 ml-2 hidden lg:block">
-            <p className="flex items-center justify-center gap-x-2 text-white text-base font-medium">
-              Radiant raises $100M Series A from Tailwind Ventures
-              <ChevronRightIcon className="w-4 h-4" />
-            </p>
+       <Link to={'/'}>
+          <div className="flex items-center gap-x-2 cursor-pointer">
+            <AdjustmentsVerticalIcon className="w-6 h-6" />
+            <h1 className="text-xl font-medium">CuratedCourses</h1>
+            <div className="bg-gray-600/35 rounded-full px-3 py-1/2 ml-2 hidden lg:block">
+              <p className="flex items-center justify-center gap-x-2 text-white text-base font-medium">
+                Radiant raises $100M Series A from Tailwind Ventures
+                <ChevronRightIcon className="w-4 h-4" />
+              </p>
+            </div>
           </div>
-        </div>
+       </Link>
 
         <Bars2Icon className="w-6 h-6 lg:hidden" onClick={handleMenuClick} />
         <div className="hidden lg:block">
