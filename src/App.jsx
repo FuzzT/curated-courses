@@ -1,9 +1,7 @@
 import Footer from './component/Footer';
 import BlogList from './pages/BlogList';
 import Home from './pages/Home';
-import CourseFilterPage from './pages/CourseFilterPage';
 import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
-import CourseFilter from './component/CourseFilter';
 import CourseList from './pages/CourseList';
 
 export default function App() {
@@ -21,7 +19,6 @@ export default function App() {
             {/* Blog List Route */}
             <Route path="/AllBlogs" element={<BlogList />} />
 
-            <Route path="/filter" element={<CourseFilter />} />
             
           </Routes>
         </div>
