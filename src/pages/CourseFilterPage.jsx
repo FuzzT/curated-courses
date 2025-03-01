@@ -29,7 +29,8 @@ const CourseFilterPage = () => {
 
   return (
     <section className="relative p-4 bg-gray-50 min-h-screen flex flex-col justify-center items-center overflow-hidden">
-      <BackgroundAnimation /> {/* Add the background animation component */}
+      
+      {/* Add the background animation component */}
 
       <motion.div
         initial={{ opacity: 0, y: 20 }}
